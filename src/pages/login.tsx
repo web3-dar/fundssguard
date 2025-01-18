@@ -15,9 +15,9 @@ const LoginForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
-  const validEmail = "almashell@gmail.com";
-  const validPassword = "123";
-  const userName = "Melzer Ralf";
+  const validEmail = "Jacobrey5321@gmail.com";
+  const validPassword = "Bosslady75$";
+  const userName = "Leigh Ann Sanford";
   const userImage = logo;
 
   const togglePasswordVisibility = () => {

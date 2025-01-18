@@ -80,7 +80,7 @@ const MyCards = () => {
         {/* Card Details Section */}
         <div className="w-full max-w-4xl bg-white p-4 rounded-lg shadow-md">
           {[
-            { label: 'Name On Card', value: 'Briley Henderson' },
+            { label: 'Name On Card', value: 'Leigh Ann Sanford' },
             { label: 'Card Number', value: 'XXXX-XXX-XXXX-2399' },
             { label: 'Expiry Date', value: 'XX/XX' },
             { label: 'CVC', value: 'XXX' },

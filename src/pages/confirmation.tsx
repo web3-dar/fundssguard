@@ -9,8 +9,8 @@ const Confirmation: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
-  const validPin = "1234"; // Hardcoded valid PIN
-  const userName = "Briley Henderson"; // Replace with dynamic user name if needed
+  const validPin = "5321"; // Hardcoded valid PIN
+  const userName = "Leigh Ann Sanford"; // Replace with dynamic user name if needed
   const userImage = img; // Replace with the user's profile picture URL
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

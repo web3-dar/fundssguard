@@ -52,7 +52,7 @@ const Dashboard = () => {
       <div className="min-h-screen bg-gray-100 flex flex-col">
         {/* Header */}
         <div className="bg-purple-700 text-white p-4 flex justify-between items-center sticky top-0 z-10">
-          <img src={person} width="40" className="rounded-full" />
+          <img src={person} width="40" className="rounded-full h-[40px]" />
           <h1 className="text-lg font-thin">Crypto Dashboard</h1>
           <div className="cursor-pointer text-white" onClick={refreshPage}>
             <FaSyncAlt />
@@ -66,7 +66,7 @@ const Dashboard = () => {
             {/* Total Balance Section */}
             <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
               <h2 className="text-lg font-medium">Portfolio Value</h2>
-              <h1 className="text-4xl font-bold mt-2">$880,530.30</h1>
+              <h1 className="text-4xl font-bold mt-2">$890,530.30</h1>
               <p className="mt-2 text-sm text-purple-200">+5.20% (24h)</p>
             </div>
 
