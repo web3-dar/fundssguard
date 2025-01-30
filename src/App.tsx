@@ -16,8 +16,8 @@ import CryptoDashboard from './pages/settings';
 import WalletPage from './pages/history';
 import BuyBTCPage from './pages/buyBTC';
 import ReceiveCoinPage from './pages/receive';
-// import SellCoin from './pages/sell';
-import SellCoinPage from './pages/sell';
+import WithdrawCoinPage from './pages/sell';
+
 
 
 const App: React.FC = () => {
@@ -37,7 +37,7 @@ const App: React.FC = () => {
           <Route path="/wallet" element={<WalletPage />} />
           <Route path="/cards" element={<MyCards />} />
           <Route path="/earn" element={<CryptoDashboard />} />
-          <Route path="/sell" element={<SellCoinPage />} />
+          <Route path="/withdraw" element={<WithdrawCoinPage />} />
           
           
           

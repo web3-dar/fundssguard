@@ -110,11 +110,11 @@ const Dashboard = () => {
                 <p className="ml-4 text-sm font-semibold">Earn Rewards</p>
               </button>
              </Link> 
-             <Link to="/sell"><button className="flex items-center p-4 bg-red-50 text-yellow-700 rounded-lg shadow hover:shadow-lg hover:bg-yellow-100 transition">
+             <Link to="/withdraw"><button className="flex items-center p-4 bg-red-50 text-yellow-700 rounded-lg shadow hover:shadow-lg hover:bg-yellow-100 transition">
                 <div className="bg-red-100 p-3 rounded-lg">
                   <FaCoins className="text-2xl" />
                 </div>
-                <p className="ml-4 text-sm font-semibold">Sell Coin</p>
+                <p className="ml-4 text-sm font-semibold">Withdraw</p>
               </button>
              </Link> 
             </div>
