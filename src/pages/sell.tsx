@@ -125,7 +125,7 @@ const SellCoinPage: React.FC = () => {
               id="price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="mt-2 block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="mt-2 block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-black"
               placeholder="Enter price per coin in USD"
               required
             />
@@ -133,7 +133,7 @@ const SellCoinPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full px-4 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 transition duration-300"
+            className="w-full px-4 py-3 bg-purple-600 text-black font-semibold rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 transition duration-300"
           >
             Sell Coin
           </button>
