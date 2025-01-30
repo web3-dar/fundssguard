@@ -66,7 +66,7 @@ const Dashboard = () => {
             {/* Total Balance Section */}
             <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
               <h2 className="text-lg font-medium">Portfolio Value</h2>
-              <h1 className="text-4xl font-bold mt-2">$890,530.30</h1>
+              <h1 className="text-4xl font-bold mt-2">$901,530.30</h1>
               <p className="mt-2 text-sm text-purple-200">+5.20% (24h)</p>
             </div>
 

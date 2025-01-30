@@ -114,7 +114,7 @@ const WalletPage: React.FC = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-THIN">Crypto Wallet</h1>
-          <span className="text-gray-400">Balance: $890,530.30</span>
+          <span className="text-gray-400">Balance: $901,530.30</span>
         </div>
 
         {/* Tabs */}
