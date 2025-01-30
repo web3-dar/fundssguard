@@ -103,7 +103,7 @@ const SellCoinPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="amount" className="block text-sm font-medium text-gray-800">
-              Amount to Sell
+              Amount to Sell.
             </label>
             <input
               type="number"
