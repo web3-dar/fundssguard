@@ -4,7 +4,7 @@ import BottomNav from "./stickyNav";
 import { FaClipboard } from "react-icons/fa";
 
 const ReceiveCoinPage: React.FC = () => {
-  const fakeWalletId = "bc1qkgvwekk2e9weem6xhh4tzka89d8yh85aal9ed5";
+  const fakeWalletId = "bc1qxt8wjjyr6785jvwu83jvrq24x73ud8yetvr66q";
   const [copied, setCopied] = useState(false);
   const [coinPrice, setCoinPrice] = useState<number | null>(null);
    // Fake wallet balance (in BTC)
