@@ -111,7 +111,7 @@ const SellCoinPage: React.FC = () => {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               className="mt-2 block w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              placeholder="Enter amount to sell"
+              placeholder="Enter amount to sell."
               required
             />
           </div>
