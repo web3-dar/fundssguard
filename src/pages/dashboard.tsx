@@ -3,7 +3,7 @@ import axios from "axios";
 import BottomNav from "./stickyNav";
 import { FaSyncAlt, FaWallet, FaCoins, FaArrowDown } from "react-icons/fa";
 import person from '../assets/person_1.jpg'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Crypto {
   id: string;
@@ -14,9 +14,24 @@ interface Crypto {
   price_change_percentage_24h: number;
 }
 
+
+
 const Dashboard = () => {
   const [cryptoData, setCryptoData] = useState<Crypto[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      sessionStorage.clear(); // Clear session storage
+      setIsLoading(false);
+      navigate('/');
+    }, 2000);
+  };
+
 
   useEffect(() => {
     const fetchCryptoData = async () => {
@@ -47,6 +62,41 @@ const Dashboard = () => {
     window.location.reload();
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="w-16 h-16 border-4 border-orange-500 border-dotted rounded-full animate-spin"></div>
+        <p className="mt-4 text-xl font-semibold text-black">Processing...</p>
+      </div>
+    );
+  }
+  const [btcPrice, setBtcPrice] = useState<number>(0);
+  const targetUSDValue = 815000.00;
+  const [btcAmount, setBtcAmount] = useState<number>(0);
+
+  const fetchBTCPrice = async () => {
+    try {
+      const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+      const data = await response.json();
+      const currentPrice = data.bitcoin.usd;
+      setBtcPrice(currentPrice);
+
+      // Calculate BTC amount equivalent to $815,000.00
+      setBtcAmount(targetUSDValue / currentPrice);
+    } catch (error) {
+      console.error("Error fetching BTC price:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBTCPrice();
+    const interval = setInterval(fetchBTCPrice, 30000); // Updates every 30 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+
+
+
   return (
     <>
       <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -64,11 +114,12 @@ const Dashboard = () => {
           {/* Left Section */}
           <div className="lg:w-1/3 space-y-6">
             {/* Total Balance Section */}
-            <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
-              <h2 className="text-lg font-medium">Portfolio Value</h2>
-              <h1 className="text-4xl font-bold mt-2">$901,530.30</h1>
-              <p className="mt-2 text-sm text-purple-200">+5.20% (24h)</p>
-            </div>
+          <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
+      <h2 className="text-lg font-medium">Portfolio Value</h2>
+      <h1 className="text-4xl font-bold mt-2">${targetUSDValue.toFixed(2)}</h1>
+      <p className="mt-2 text-sm text-purple-200">BTC Price: ${btcPrice.toFixed(2)}</p>
+      <p className="mt-2 text-sm text-purple-200">BTC Amount: {btcAmount.toFixed(6)} BTC</p>
+    </div>
 
             {/* Actions Section */}
             <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
@@ -117,6 +168,35 @@ const Dashboard = () => {
                 <p className="ml-4 text-sm font-semibold">Withdraw</p>
               </button>
              </Link> 
+
+             <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-5 h-5 text-gray-400"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+
+             <li
+                  onClick={handleLogout}
+                  className="flex items-center justify-between  p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer bg-black text-white hover:text-white hover:bg-red-500"
+                >
+                  <span className="text-sm font-medium  ">Log out</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-5 h-5 text-gray-400"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </li>
+
             </div>
           </div>
 

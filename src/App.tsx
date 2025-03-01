@@ -17,6 +17,7 @@ import WalletPage from './pages/history';
 import BuyBTCPage from './pages/buyBTC';
 import ReceiveCoinPage from './pages/receive';
 import WithdrawCoinPage from './pages/sell';
+import ProtectedRoute from './pages/protect';
 
 
 
@@ -28,20 +29,53 @@ const App: React.FC = () => {
          
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/buy" element={<BuyBTCPage />} />
-          <Route path="/receive" element={<ReceiveCoinPage />} />
           <Route path="/pin" element={<Confirmation />} />
-          <Route path="/exchange" element={<ExchangePage />} />
-          <Route path="/deposit" element={<DepositsPage />} />
-          <Route path="/loan" element={<LoanPage />} />
-          <Route path="/wallet" element={<WalletPage />} />
-          <Route path="/cards" element={<MyCards />} />
-          <Route path="/earn" element={<CryptoDashboard />} />
-          <Route path="/withdraw" element={<WithdrawCoinPage />} />
+
+          
+          <Route path="/buy" element={
+            <ProtectedRoute><BuyBTCPage />
+              </ProtectedRoute>} />
+        
+          <Route path="/receive" element={
+            <ProtectedRoute><ReceiveCoinPage />
+              </ProtectedRoute>} />
+          
+          <Route path="/exchange" element={
+            <ProtectedRoute><ExchangePage />
+              </ProtectedRoute>} />
+          <Route path="/deposit" element={
+             <ProtectedRoute><DepositsPage />
+              </ProtectedRoute>
+              } />
+          <Route path="/loan" element={
+             <ProtectedRoute> <LoanPage />
+              </ProtectedRoute>
+             } />
+          <Route path="/wallet" element={
+             <ProtectedRoute> <WalletPage />
+              </ProtectedRoute>
+             } />
+          <Route path="/cards" element={
+             <ProtectedRoute><MyCards />
+              </ProtectedRoute>
+              } />
+          <Route path="/earn" element={
+             <ProtectedRoute><CryptoDashboard />
+              </ProtectedRoute>
+              } />
+          <Route path="/withdraw" element={
+            
+            <ProtectedRoute><WithdrawCoinPage />
+              </ProtectedRoute>
+              } />
           
           
           
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={
+            
+            <ProtectedRoute><Dashboard />
+              </ProtectedRoute>
+              } />
         </Routes>
       </div>
     </Router>
