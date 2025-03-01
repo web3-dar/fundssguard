@@ -96,7 +96,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchBTCPrice();
-    const interval = setInterval(fetchBTCPrice, 3000); // Updates every 30 seconds
+    const interval = setInterval(fetchBTCPrice, 30000); // Updates every 30 seconds
     return () => clearInterval(interval);
   }, [btcAmount]);
 
