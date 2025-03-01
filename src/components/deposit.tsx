@@ -62,7 +62,7 @@ const WalletTransferPage: React.FC = () => {
         {/* Wallet Balance */}
         <div className="w-full max-w-md bg-gradient-to-r from-purple-500 to-blue-500 text-white p-6 rounded-lg shadow-md mb-6">
           <h2 className="text-lg font-medium">Your Wallet Balance</h2>
-          <p className="text-2xl font-bold mt-2">$901,530.30</p>
+          <p className="text-2xl font-bold mt-2">$815,000.00</p>
           <p className="text-sm mt-1">Keep your balance updated to continue transactions.</p>
         </div>
 

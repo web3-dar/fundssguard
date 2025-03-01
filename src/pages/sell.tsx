@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BottomNav from './stickyNav';
 
 const WithdrawalPage: React.FC = () => {
-  const [balance, setBalance] = useState(90153030); // Example balance in BTC
+  const [balance, setBalance] = useState(81590000); // Example balance in BTC
   const [transactions, setTransactions] = useState([
     { date: '2025-01-25', type: 'Deposit', amount: 0.5, coin: 'Bitcoin', price: 32000 },
     { date: '2025-01-20', type: 'Deposit', amount: 0.25, coin: 'Ethereum', price: 2000 },

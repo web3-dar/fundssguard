@@ -48,7 +48,7 @@ const MyCards = () => {
             <h2 className="text-sm font-semibold">BALANCE</h2>
             <img src={cardLogo} alt="Visa" className="w-10" />
           </div>
-          <h1 className="text-3xl font-semibold">$901,530.30</h1>
+          <h1 className="text-3xl font-semibold">$815,000.00</h1>
           <div className="mt-4">
             <p className="font-medium text-sm text-gray-400">CARD NUMBER</p>
             <p className="text-xl font-bold tracking-wide mt-1">
