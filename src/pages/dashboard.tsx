@@ -71,7 +71,7 @@ const Dashboard = () => {
     );
   }
   const [btcPrice, setBtcPrice] = useState<number>(0);
-  const targetUSDValue = 815000.00;
+  const [portfolioValue, setPortfolioValue] = useState<number>(815000);
   const [btcAmount, setBtcAmount] = useState<number>(0);
 
   const fetchBTCPrice = async () => {
@@ -79,10 +79,16 @@ const Dashboard = () => {
       const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
       const data = await response.json();
       const currentPrice = data.bitcoin.usd;
+
       setBtcPrice(currentPrice);
 
-      // Calculate BTC amount equivalent to $815,000.00
-      setBtcAmount(targetUSDValue / currentPrice);
+      // Set initial BTC amount if it's not already set
+      if (btcAmount === 0) {
+        setBtcAmount(portfolioValue / currentPrice);
+      }
+
+      // Update portfolio value based on new BTC price
+      setPortfolioValue(btcAmount * currentPrice);
     } catch (error) {
       console.error("Error fetching BTC price:", error);
     }
@@ -90,10 +96,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchBTCPrice();
-    const interval = setInterval(fetchBTCPrice, 30000); // Updates every 30 seconds
+    const interval = setInterval(fetchBTCPrice, 3000); // Updates every 30 seconds
     return () => clearInterval(interval);
-  }, []);
-
+  }, [btcAmount]);
 
 
 
@@ -114,9 +119,9 @@ const Dashboard = () => {
           {/* Left Section */}
           <div className="lg:w-1/3 space-y-6">
             {/* Total Balance Section */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
+            <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
       <h2 className="text-lg font-medium">Portfolio Value</h2>
-      <h1 className="text-4xl font-bold mt-2">${targetUSDValue.toFixed(2)}</h1>
+      <h1 className="text-4xl font-bold mt-2">${portfolioValue.toFixed(2)}</h1>
       <p className="mt-2 text-sm text-purple-200">BTC Price: ${btcPrice.toFixed(2)}</p>
       <p className="mt-2 text-sm text-purple-200">BTC Amount: {btcAmount.toFixed(6)} BTC</p>
     </div>
