@@ -82,13 +82,19 @@ const Dashboard = () => {
 
       setBtcPrice(currentPrice);
 
-      // Set initial BTC amount if it's not already set
-      if (btcAmount === 0) {
-        setBtcAmount(portfolioValue / currentPrice);
+      // Check if BTC amount exists in localStorage
+      let storedBTCAmount = localStorage.getItem("btcAmount");
+
+      if (!storedBTCAmount) {
+        const initialBTC = portfolioValue / currentPrice;
+        setBtcAmount(initialBTC);
+        localStorage.setItem("btcAmount", initialBTC.toString());
+      } else {
+        setBtcAmount(parseFloat(storedBTCAmount));
       }
 
-      // Update portfolio value based on new BTC price
-      setPortfolioValue(btcAmount * currentPrice);
+      // Update portfolio value
+      setPortfolioValue(parseFloat(localStorage.getItem("btcAmount") || "0") * currentPrice);
     } catch (error) {
       console.error("Error fetching BTC price:", error);
     }
@@ -96,10 +102,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchBTCPrice();
-    const interval = setInterval(fetchBTCPrice, 30000); // Updates every 30 seconds
+    const interval = setInterval(fetchBTCPrice, 3000); // Updates every 30 seconds
     return () => clearInterval(interval);
-  }, [btcAmount]);
-
+  }, []);
 
 
   return (
@@ -125,7 +130,6 @@ const Dashboard = () => {
       <p className="mt-2 text-sm text-purple-200">BTC Price: ${btcPrice.toFixed(2)}</p>
       <p className="mt-2 text-sm text-purple-200">BTC Amount: {btcAmount.toFixed(6)} BTC</p>
     </div>
-
             {/* Actions Section */}
             <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
               {/* Buy Crypto */}
