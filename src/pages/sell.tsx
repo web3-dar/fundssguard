@@ -4,8 +4,9 @@ import BottomNav from './stickyNav';
 const WithdrawalPage: React.FC = () => {
   const [balance, setBalance] = useState(81590000); // Example balance in BTC
   const [transactions, setTransactions] = useState([
-    { date: '2025-01-25', type: 'Deposit', amount: 0.5, coin: 'Bitcoin', price: 32000 },
+    { date: '2025-26-03', type: 'Withdrawal', amount: 8.7, coin: 'Bitcoin', price: 8200680 },
     { date: '2025-01-20', type: 'Deposit', amount: 0.25, coin: 'Ethereum', price: 2000 },
+     { date: '2025-01-20', type: 'Deposit', amount: 0.25, coin: 'Ethereum', price: 2000 },
   ]);
   const [amount, setAmount] = useState('');
   const [price, setPrice] = useState('');
@@ -71,14 +72,15 @@ const WithdrawalPage: React.FC = () => {
       <div className="min-h-screen bg-gradient-to-r from-purple-700 to-indigo-600 text-white py-12 px-6 sm:px-12">
         {/* Dashboard Section */}
         <div className="max-w-6xl mx-auto p-8 bg-white rounded-2xl shadow-lg">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">Bitcoin Withdrawal</h2>
+          <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">Bitcoin Withdrawal</h2>
 
           {/* Balance */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
             <div className="bg-purple-600 text-white p-6 rounded-xl shadow-xl flex items-center justify-between">
               <div>
                 <h3 className="text-xl font-semibold">Balance</h3>
-                <p className="text-2xl">${balance.toLocaleString()}</p>
+                {/* <p className="text-2xl">${balance.toLocaleString()}</p> */}
+                <p className="text-2xl">$0.00</p>
               </div>
               <div>
                 <svg className="w-12 h-12 text-white opacity-60" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10zm-1-14h2v5h-2zm0 7h2v2h-2z"></path></svg>

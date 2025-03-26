@@ -71,7 +71,7 @@ const Dashboard = () => {
     );
   }
   const [btcPrice, setBtcPrice] = useState<number>(0);
-  const [portfolioValue, setPortfolioValue] = useState<number>(815000);
+  const [portfolioValue, setPortfolioValue] = useState<number>(0);
   const [btcAmount, setBtcAmount] = useState<number>(0);
 
   const fetchBTCPrice = async () => {
@@ -126,9 +126,11 @@ const Dashboard = () => {
             {/* Total Balance Section */}
             <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg rounded-xl p-6">
       <h2 className="text-lg font-medium">Portfolio Value</h2>
-      <h1 className="text-4xl font-bold mt-2">${portfolioValue.toFixed(2)}</h1>
+      {/* <h1 className="text-4xl font-bold mt-2">${portfolioValue.toFixed(2)}</h1> */}
+      <h1 className="text-4xl font-bold mt-2">$0.00</h1>
       <p className="mt-2 text-sm text-purple-200">BTC Price: ${btcPrice.toFixed(2)}</p>
-      <p className="mt-2 text-sm text-purple-200">BTC Amount: {btcAmount.toFixed(6)} BTC</p>
+      {/* <p className="mt-2 text-sm text-purple-200">BTC Amount: {btcAmount.toFixed(6)} BTC</p> */}
+      <p className="mt-2 text-sm text-purple-200">BTC Amount: 0 BTC</p>
     </div>
             {/* Actions Section */}
             <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
