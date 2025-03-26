@@ -91,6 +91,7 @@ const Dashboard = () => {
         localStorage.setItem("btcAmount", initialBTC.toString());
       } else {
         setBtcAmount(parseFloat(storedBTCAmount));
+        console.log(btcAmount)
       }
 
       // Update portfolio value
